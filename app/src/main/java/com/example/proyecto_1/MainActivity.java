@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
+import android.graphics.drawable.AnimationDrawable;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
@@ -38,21 +39,36 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 activar_animaciones(bnt1);
-                cnst.setBackgroundResource(R.drawable.gradiente1);
+                cnst.setBackgroundResource(R.drawable.gradient_list);
+                ConstraintLayout constraintLayout= findViewById(R.id.cnt);
+                AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
+                animationDrawable.setEnterFadeDuration(2000);
+                animationDrawable.setExitFadeDuration(4000);
+                animationDrawable.start();
             }
         });
         bnt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 activar_animaciones(bnt2);
-                cnst.setBackgroundResource(R.drawable.gradiente2);
+                cnst.setBackgroundResource(R.drawable.gradient_list1);
+                ConstraintLayout constraintLayout= findViewById(R.id.cnt);
+                AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
+                animationDrawable.setEnterFadeDuration(2000);
+                animationDrawable.setExitFadeDuration(4000);
+                animationDrawable.start();
             }
         });
         bnt3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 activar_animaciones(bnt3);
-                cnst.setBackgroundResource(R.drawable.gradiente3);
+                cnst.setBackgroundResource(R.drawable.gradient_list2);
+                ConstraintLayout constraintLayout= findViewById(R.id.cnt);
+                AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
+                animationDrawable.setEnterFadeDuration(2000);
+                animationDrawable.setExitFadeDuration(4000);
+                animationDrawable.start();
             }
         });
         bnt4.setOnClickListener(new View.OnClickListener() {
