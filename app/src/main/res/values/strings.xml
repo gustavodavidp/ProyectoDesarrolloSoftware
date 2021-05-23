@@ -4,4 +4,7 @@
     <string name="btn2">Gradiente 2</string>
     <string name="btn3">Gradiente 3</string>
     <string name="btn4">STOP</string>
+    <string name="imagen1">gear1</string>
+    <string name="imagen2">gear2</string>
+    <string name="imagen3">gear3</string>
 </resources>
