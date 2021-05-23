@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         bnt2 = (Button)findViewById(R.id.btn2);
         bnt3 = (Button)findViewById(R.id.btn3);
         bnt4 = (Button)findViewById(R.id.btn4);
+
         img1 = (ImageView)findViewById(R.id.imagen1);
         img2 = (ImageView)findViewById(R.id.imagen2);
         img3 = (ImageView)findViewById(R.id.imagen3);
@@ -32,56 +33,36 @@ public class MainActivity extends AppCompatActivity {
         bnt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                apagar();
-                Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.blink_button);
-                Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.clock);
-                Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.clock);
-                Animation animation3 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.counterclock);
-
-                img1.startAnimation(animation3);
-                img2.startAnimation(animation1);
-                img3.startAnimation(animation2);
-                bnt1.startAnimation(animation);
+                activar_animaciones(bnt1);
             }
         });
         bnt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                apagar();
-                Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.blink_button);
-                Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.clock);
-                Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.clock);
-                Animation animation3 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.counterclock);
-
-                img1.startAnimation(animation3);
-                img2.startAnimation(animation1);
-                img3.startAnimation(animation2);
-                bnt2.startAnimation(animation);
+                activar_animaciones(bnt2);
             }
         });
         bnt3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                apagar();
-                Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.blink_button);
-                Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.clock);
-                Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.clock);
-                Animation animation3 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.counterclock);
-
-                img1.startAnimation(animation3);
-                img2.startAnimation(animation1);
-                img3.startAnimation(animation2);
-                bnt3.startAnimation(animation);
+                activar_animaciones(bnt3);
             }
         });
         bnt4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                apagar();
+                apagar_animaciones();
             }
         });
     }
-    private void apagar(){
+
+    private void activar_animaciones(Button btn){
+        apagar_animaciones();
+        activar_parpadeo_btn(btn);
+        activar_engranajes();
+    }
+
+    private void apagar_animaciones(){
         bnt1.clearAnimation();
         bnt2.clearAnimation();
         bnt3.clearAnimation();
@@ -89,4 +70,18 @@ public class MainActivity extends AppCompatActivity {
         img2.clearAnimation();
         img3.clearAnimation();
     }
+
+    private void activar_parpadeo_btn(Button btn){
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.blink_button);
+        btn.startAnimation(animation);
+    }
+    private void activar_engranajes(){
+        Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.clock);
+        Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.clock);
+        Animation animation3 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.counterclock);
+        img1.startAnimation(animation3);
+        img2.startAnimation(animation1);
+        img3.startAnimation(animation2);
+    }
+
 }
