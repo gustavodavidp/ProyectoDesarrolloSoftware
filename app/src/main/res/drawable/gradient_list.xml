@@ -3,8 +3,7 @@
  xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@drawable/gradiente1"
         android:duration="4000"/>
-    <item android:drawable="@drawable/gradiente2"
+    <item android:drawable="@drawable/gradiente4"
         android:duration="4000"/>
-    <item android:drawable="@drawable/gradiente3"
-        android:duration="4000"/>
+
 </animation-list>
