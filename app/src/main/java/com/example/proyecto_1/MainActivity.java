@@ -35,10 +35,12 @@ public class MainActivity extends AppCompatActivity {
                 apagar();
                 Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.blink_button);
                 Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.clock);
-                Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.counterclock);
-                img1.startAnimation(animation2);
+                Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.clock);
+                Animation animation3 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.counterclock);
+
+                img1.startAnimation(animation3);
                 img2.startAnimation(animation1);
-                img3.startAnimation(animation1);
+                img3.startAnimation(animation2);
                 bnt1.startAnimation(animation);
             }
         });
@@ -48,10 +50,12 @@ public class MainActivity extends AppCompatActivity {
                 apagar();
                 Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.blink_button);
                 Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.clock);
-                Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.counterclock);
-                img1.startAnimation(animation2);
+                Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.clock);
+                Animation animation3 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.counterclock);
+
+                img1.startAnimation(animation3);
                 img2.startAnimation(animation1);
-                img3.startAnimation(animation1);
+                img3.startAnimation(animation2);
                 bnt2.startAnimation(animation);
             }
         });
@@ -61,10 +65,12 @@ public class MainActivity extends AppCompatActivity {
                 apagar();
                 Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.blink_button);
                 Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.clock);
-                Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.counterclock);
-                img1.startAnimation(animation2);
+                Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.clock);
+                Animation animation3 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.counterclock);
+
+                img1.startAnimation(animation3);
                 img2.startAnimation(animation1);
-                img3.startAnimation(animation1);
+                img3.startAnimation(animation2);
                 bnt3.startAnimation(animation);
             }
         });
