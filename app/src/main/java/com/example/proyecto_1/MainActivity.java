@@ -76,12 +76,13 @@ public class MainActivity extends AppCompatActivity {
         btn.startAnimation(animation);
     }
     private void activar_engranajes(){
-        Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.clock);
+        Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.counterclock);
         Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.clock);
-        Animation animation3 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.counterclock);
-        img1.startAnimation(animation3);
-        img2.startAnimation(animation1);
-        img3.startAnimation(animation2);
+        Animation animation3 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.clock);
+        img1.startAnimation(animation1);
+        img2.startAnimation(animation2);
+        img3.startAnimation(animation3);
+
     }
 
 }
