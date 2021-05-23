@@ -1,6 +1,8 @@
 package com.example.proyecto_1;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 
 import android.media.Image;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import android.widget.ImageView;
 public class MainActivity extends AppCompatActivity {
 
     private Button bnt1,bnt2,bnt3,bnt4;
+    private ConstraintLayout cnst;
     private ImageView img1, img2, img3 ;
 
     @Override
@@ -24,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         bnt2 = (Button)findViewById(R.id.btn2);
         bnt3 = (Button)findViewById(R.id.btn3);
         bnt4 = (Button)findViewById(R.id.btn4);
+        cnst = (ConstraintLayout)findViewById(R.id.cnt);
 
         img1 = (ImageView)findViewById(R.id.imagen1);
         img2 = (ImageView)findViewById(R.id.imagen2);
@@ -34,18 +38,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 activar_animaciones(bnt1);
+                cnst.setBackgroundResource(R.drawable.gradiente1);
             }
         });
         bnt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 activar_animaciones(bnt2);
+                cnst.setBackgroundResource(R.drawable.gradiente2);
             }
         });
         bnt3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 activar_animaciones(bnt3);
+                cnst.setBackgroundResource(R.drawable.gradiente3);
             }
         });
         bnt4.setOnClickListener(new View.OnClickListener() {
