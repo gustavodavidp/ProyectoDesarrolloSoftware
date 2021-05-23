@@ -89,6 +89,8 @@
         android:contentDescription="@string/imagen2"
         android:rotation="-1"
         android:src="@drawable/gear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toStartOf="@+id/imagen1"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -96,12 +98,16 @@
         android:id="@+id/imagen3"
         android:layout_width="82dp"
         android:layout_height="172dp"
-        android:layout_marginTop="47dp"
+        android:layout_marginStart="93dp"
+        android:layout_marginLeft="93dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="91dp"
         android:layout_marginRight="91dp"
         android:contentDescription="@string/imagen3"
         android:src="@drawable/gear"
         app:layout_constraintEnd_toEndOf="@+id/imagen1"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
