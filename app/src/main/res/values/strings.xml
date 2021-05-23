@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">proyecto_1</string>
+    <string name="btn1">Gradiente 1</string>
+    <string name="btn2">Gradiente 2</string>
+    <string name="btn3">Gradiente 3</string>
+    <string name="btn4">STOP</string>
+</resources>
