@@ -12,6 +12,12 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+//Integrantes:
+//Maria Pitti  4-804-1193
+//Gustavo Polanco  8-943-943
+//Jhonathan Vidal 20-14-4198
+//Juan Torres 8-924-1897
+//Emir Chacin 8-927-896
 
 public class MainActivity extends AppCompatActivity {
 
