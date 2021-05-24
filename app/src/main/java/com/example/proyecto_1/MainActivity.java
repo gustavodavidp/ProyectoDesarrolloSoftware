@@ -17,7 +17,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Button bnt1,bnt2,bnt3,bnt4;
     private ConstraintLayout cnst;
-    private ImageView img1, img2, img3 ;
+    private AnimationDrawable animationDrawable;
+    private ImageView img1, img2, img3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         bnt2 = (Button)findViewById(R.id.btn2);
         bnt3 = (Button)findViewById(R.id.btn3);
         bnt4 = (Button)findViewById(R.id.btn4);
+
         cnst = (ConstraintLayout)findViewById(R.id.cnt);
 
         img1 = (ImageView)findViewById(R.id.imagen1);
@@ -38,37 +40,19 @@ public class MainActivity extends AppCompatActivity {
         bnt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activar_animaciones(bnt1);
-                cnst.setBackgroundResource(R.drawable.gradient_list);
-                ConstraintLayout constraintLayout= findViewById(R.id.cnt);
-                AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
-                animationDrawable.setEnterFadeDuration(2000);
-                animationDrawable.setExitFadeDuration(4000);
-                animationDrawable.start();
+                activar_animaciones(bnt1,cnst,1);
             }
         });
         bnt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activar_animaciones(bnt2);
-                cnst.setBackgroundResource(R.drawable.gradient_list1);
-                ConstraintLayout constraintLayout= findViewById(R.id.cnt);
-                AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
-                animationDrawable.setEnterFadeDuration(2000);
-                animationDrawable.setExitFadeDuration(4000);
-                animationDrawable.start();
+                activar_animaciones(bnt2,cnst,2);
             }
         });
         bnt3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activar_animaciones(bnt3);
-                cnst.setBackgroundResource(R.drawable.gradient_list2);
-                ConstraintLayout constraintLayout= findViewById(R.id.cnt);
-                AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
-                animationDrawable.setEnterFadeDuration(2000);
-                animationDrawable.setExitFadeDuration(4000);
-                animationDrawable.start();
+                activar_animaciones(bnt3,cnst,3);
             }
         });
         bnt4.setOnClickListener(new View.OnClickListener() {
@@ -79,8 +63,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void activar_animaciones(Button btn){
+    private void activar_animaciones(Button btn,ConstraintLayout cnst, int boton){
         apagar_animaciones();
+        activar_gradiente(cnst, boton);
         activar_parpadeo_btn(btn);
         activar_engranajes();
     }
@@ -92,6 +77,12 @@ public class MainActivity extends AppCompatActivity {
         img1.clearAnimation();
         img2.clearAnimation();
         img3.clearAnimation();
+        try {
+            animationDrawable.stop();
+            cnst.setBackgroundColor(0);
+        }catch (Exception e){
+
+        }
     }
 
     private void activar_parpadeo_btn(Button btn){
@@ -105,6 +96,23 @@ public class MainActivity extends AppCompatActivity {
         img1.startAnimation(animation1);
         img2.startAnimation(animation2);
         img3.startAnimation(animation3);
+
+    }
+    private void activar_gradiente(ConstraintLayout cnst, int boton){
+        if(boton == 1){
+            cnst.setBackgroundResource(R.drawable.gradient_list);
+        }
+        if(boton == 2){
+            cnst.setBackgroundResource(R.drawable.gradient_list1);
+        }
+        if(boton == 3){
+            cnst.setBackgroundResource(R.drawable.gradient_list2);
+        }
+        ConstraintLayout constraintLayout = findViewById(R.id.cnt);
+        animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2000);
+        animationDrawable.setExitFadeDuration(4000);
+        animationDrawable.start();
 
     }
 
