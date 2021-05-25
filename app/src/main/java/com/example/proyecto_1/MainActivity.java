@@ -2,19 +2,12 @@ package com.example.proyecto_1;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
 
-import android.animation.ObjectAnimator;
-import android.animation.TimeInterpolator;
-import android.graphics.Path;
 import android.graphics.drawable.AnimationDrawable;
-import android.media.Image;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.PathInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 //Integrantes:
@@ -29,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Button bnt1,bnt2,bnt3,bnt4;
     private ConstraintLayout cnst;
     private AnimationDrawable animationDrawable;
-    private ImageView img1, img2, img3;
+    private ImageView img1, img2, img3,Im_fondo, Im_P;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
         img1 = (ImageView)findViewById(R.id.imagen1);
         img2 = (ImageView)findViewById(R.id.imagen2);
         img3 = (ImageView)findViewById(R.id.imagen3);
+        Im_fondo =(ImageView)findViewById(R.id.Im_fondo);
+        Im_P =(ImageView)findViewById(R.id.Im_p);
+        Im_fondo.setVisibility(View.INVISIBLE);
+        Im_P.setVisibility(View.INVISIBLE);
 
 
         bnt1.setOnClickListener(new View.OnClickListener() {
@@ -80,14 +77,8 @@ public class MainActivity extends AppCompatActivity {
         apagar_animaciones();
         activar_gradiente(cnst, boton);
         activar_parpadeo_btn(btn);
-        try {
-            escalar_engranajes();
-            Thread.sleep(500);
-            //activar_engranajes();
-        }catch (Exception e){
-
-        }
-
+        activar_engranajes();
+        aparecer_fondo(boton);
     }
 
     private void apagar_animaciones(){
@@ -97,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
         img1.clearAnimation();
         img2.clearAnimation();
         img3.clearAnimation();
+        Im_fondo.clearAnimation();
+        Im_P.clearAnimation();
         try {
             animationDrawable.stop();
             cnst.setBackgroundColor(0);
@@ -109,10 +102,10 @@ public class MainActivity extends AppCompatActivity {
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.blink_button);
         btn.startAnimation(animation);
     }
-    private void escalar_engranajes(){
-        Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom);
-        Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom);
-        Animation animation3 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom);
+    private void activar_engranajes(){
+        Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.animation1);
+        Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.animation2);
+        Animation animation3 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.animation3);
         animation1.setFillAfter(true);
         animation2.setFillAfter(true);
         animation3.setFillAfter(true);
@@ -120,24 +113,30 @@ public class MainActivity extends AppCompatActivity {
         img2.startAnimation(animation2);
         img3.startAnimation(animation3);
     }
-    private void activar_engranajes(){
-        Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.counterclock);
-        Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.clock);
-        Animation animation3 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.clock);
-        img1.startAnimation(animation1);
-        img2.startAnimation(animation2);
-        img3.startAnimation(animation3);
 
+    private void aparecer_fondo(int boton){
+        if(boton == 1){
+            Im_fondo.setImageResource(R.drawable.playa);
+            Im_P.setImageResource(R.drawable.loro_fotograma1);
+        }
+        if(boton == 2){
+            Im_fondo.setImageResource(R.drawable.desierto);
+            Im_P.setImageResource(R.drawable.dodo_fotograma1);
+        }
+        if(boton == 3){
+            Im_fondo.setImageResource(R.drawable.comic);
+            Im_P.setImageResource(R.drawable.puma_fotograma1);
+        }
+        Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.aparecer);
+        Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.aparecer);
+        animation1.setFillAfter(true);
+        animation2.setFillAfter(true);
+        Im_fondo.startAnimation(animation1);
+        Im_P.startAnimation(animation2);
     }
 
 
-    private void mover_engranajes_down(){
 
-    }
-
-    private void re_escalar_engranajes(){
-
-    }
 
     private void activar_gradiente(ConstraintLayout cnst, int boton){
         if(boton == 1){
@@ -156,5 +155,4 @@ public class MainActivity extends AppCompatActivity {
         animationDrawable.start();
 
     }
-
 }
