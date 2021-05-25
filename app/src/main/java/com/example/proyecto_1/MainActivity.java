@@ -4,12 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
+import android.animation.ObjectAnimator;
+import android.animation.TimeInterpolator;
+import android.graphics.Path;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.Image;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.PathInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 //Integrantes:
@@ -46,12 +51,14 @@ public class MainActivity extends AppCompatActivity {
         bnt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 activar_animaciones(bnt1,cnst,1);
             }
         });
         bnt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 activar_animaciones(bnt2,cnst,2);
             }
         });
@@ -73,7 +80,14 @@ public class MainActivity extends AppCompatActivity {
         apagar_animaciones();
         activar_gradiente(cnst, boton);
         activar_parpadeo_btn(btn);
-        activar_engranajes();
+        try {
+            escalar_engranajes();
+            Thread.sleep(500);
+            //activar_engranajes();
+        }catch (Exception e){
+
+        }
+
     }
 
     private void apagar_animaciones(){
@@ -95,6 +109,17 @@ public class MainActivity extends AppCompatActivity {
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.blink_button);
         btn.startAnimation(animation);
     }
+    private void escalar_engranajes(){
+        Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom);
+        Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom);
+        Animation animation3 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom);
+        animation1.setFillAfter(true);
+        animation2.setFillAfter(true);
+        animation3.setFillAfter(true);
+        img1.startAnimation(animation1);
+        img2.startAnimation(animation2);
+        img3.startAnimation(animation3);
+    }
     private void activar_engranajes(){
         Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.counterclock);
         Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.clock);
@@ -104,6 +129,16 @@ public class MainActivity extends AppCompatActivity {
         img3.startAnimation(animation3);
 
     }
+
+
+    private void mover_engranajes_down(){
+
+    }
+
+    private void re_escalar_engranajes(){
+
+    }
+
     private void activar_gradiente(ConstraintLayout cnst, int boton){
         if(boton == 1){
             cnst.setBackgroundResource(R.drawable.gradient_list);
